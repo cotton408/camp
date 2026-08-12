@@ -3,30 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>포플라운 캠핑 동호회</title>
     <!-- 아기자기하고 손글씨 느낌이 나는 구글 폰트 적용 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+=======
+    <title>별빛 아래 캠핑 일지 - AI 캐릭터 스토리</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+>>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
     <style>
         :root {
+<<<<<<< HEAD
             --bg-color: #f4ebd8; /* 따뜻한 양피지 배경색 */
             --paper-color: #fbf5e6; /* 밝은 종이색 */
             --text-color: #4a3b32; /* 진한 갈색 텍스트 */
             --border-color: #8b6b52; /* 크레용 느낌의 테두리 색 */
             --highlight: #e8d0a9;
+=======
+            --bg-color: #f4eee1; 
+            --paper-color: #fdfaf4; 
+            --text-dark: #4a3f35; 
+            --accent-green: #6b8e23; 
+            --accent-orange: #d97746; 
+            --crayon-border: 255px 15px 225px 15px/15px 225px 15px 255px; 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+>>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
         }
 
         body {
             font-family: 'Poor Story', cursive;
             background-color: var(--bg-color);
+<<<<<<< HEAD
             color: var(--text-color);
             margin: 0;
+=======
+            background-image: radial-gradient(#d5cebe 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-dark);
+            font-family: 'Gaegu', cursive, sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .journal-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: var(--paper-color);
+            padding: 40px 30px;
+            border-radius: 10px;
+            border: 2px solid #c2b6a3;
+            box-shadow: 5px 5px 20px rgba(0,0,0,0.08), inset 0 0 40px rgba(210,195,175,0.3);
+            position: relative;
+        }
+
+        .journal-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: repeating-linear-gradient(to bottom, transparent, transparent 20px, #d97746 20px, #d97746 24px);
+            opacity: 0.5;
+        }
+
+        h1, h2, h3 { font-weight: 700; text-align: center; color: var(--text-dark); }
+        h1 { font-size: 2.8rem; margin-bottom: 10px; text-shadow: 2px 2px 0px rgba(217, 119, 70, 0.2); }
+        
+        .subtitle { text-align: center; font-size: 1.4rem; color: var(--accent-green); margin-bottom: 40px; }
+
+        .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
+        .tag {
+            background: #fff;
+            padding: 5px 15px;
+            border: 2px solid var(--text-dark);
+            border-radius: var(--crayon-border);
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: bold;
+            box-shadow: 2px 2px 0px var(--text-dark);
+            transition: transform 0.2s ease;
+        }
+        .tag:hover { transform: translateY(-3px); }
+
+        .section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section.visible { opacity: 1; transform: translateY(0); }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-bottom: 3px dashed var(--accent-orange);
+            padding-bottom: 5px;
+        }
+
+        .story-text {
+            background: rgba(255, 255, 255, 0.5);
+>>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
             padding: 20px;
             background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); /* 부드러운 종이 질감 */
             line-height: 1.6;
         }
 
+<<<<<<< HEAD
         /* 삐뚤빼뚤한 손그림 느낌의 컨테이너 */
         .container {
             max-width: 1000px;
@@ -34,6 +126,14 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+=======
+        /* ================= Character Grid ================= */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+>>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
         }
 
         /* 공통 양피지 박스 디자인 (크레용으로 그린 듯한 둥근 테두리) */
@@ -44,16 +144,30 @@
             padding: 20px;
             box-shadow: 4px 4px 10px rgba(139, 107, 82, 0.2);
             position: relative;
+<<<<<<< HEAD
+=======
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease, z-index 0.3s ease;
+            cursor: pointer; /* 클릭 가능하다는 표시 */
+>>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
         }
+        .character-card:nth-child(even) { transform: rotate(3deg); }
+        .character-card:hover { transform: scale(1.05) rotate(0deg); z-index: 10; }
 
+<<<<<<< HEAD
         /* 마스킹 테이프 장식 */
         .tape {
+=======
+        .character-card::before {
+            content: '';
+>>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
             position: absolute;
             top: -10px;
             left: 50%;
             transform: translateX(-50%) rotate(-2deg);
             width: 100px;
             height: 25px;
+<<<<<<< HEAD
             background-color: rgba(220, 200, 170, 0.7);
             box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
             z-index: 10;
@@ -234,11 +348,121 @@
             .map-item {
                 width: 100%;
             }
+=======
+            background-color: rgba(217, 119, 70, 0.4); 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        /* 변경된 이미지 스타일 */
+        .char-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover; /* 이미지가 찌그러지지 않게 꽉 차게 조절 */
+            background: #e2dcd0;
+            border: 2px solid #d1c8b6;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background-image: linear-gradient(45deg, #e2dcd0 25%, #e8e2d6 25%, #e8e2d6 50%, #e2dcd0 50%, #e2dcd0 75%, #e8e2d6 75%, #e8e2d6 100%);
+            background-size: 4px 4px;
+        }
+
+        .char-name { font-size: 1.6rem; font-weight: bold; text-align: center; margin-bottom: 5px; }
+        .char-desc { font-size: 1.1rem; text-align: center; color: #666; }
+
+        footer { text-align: center; padding: 20px; margin-top: 40px; color: #8c7e6c; border-top: 2px dashed #d1bfae; }
+
+        /* ================= Modal (팝업창) Styles ================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            z-index: 999;
+            backdrop-filter: blur(3px); /* 배경을 살짝 흐리게 */
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--paper-color);
+            padding: 40px 30px 30px;
+            width: 90%;
+            max-width: 450px;
+            border: 3px solid var(--text-dark);
+            border-radius: var(--crayon-border); /* 크레용 테두리 느낌 */
+            box-shadow: 6px 6px 0px var(--text-dark);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            cursor: pointer;
+            line-height: 1;
+        }
+        .modal-close:hover { color: var(--accent-orange); }
+
+        .modal-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px dashed var(--accent-green);
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .modal-name { font-size: 2.2rem; margin-bottom: 10px; color: var(--text-dark); }
+        .modal-detail { font-size: 1.2rem; color: #555; line-height: 1.7; word-break: keep-all; }
+        
+        .modal-traits {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .modal-traits span {
+            background: var(--bg-color);
+            padding: 4px 10px;
+            border: 1px solid #c2b6a3;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: var(--accent-orange);
+        }
+
+        @media (max-width: 600px) {
+            .journal-container { margin: 15px; padding: 30px 20px; }
+            h1 { font-size: 2.2rem; }
+            .character-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
+>>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
         }
     </style>
 </head>
 <body>
 
+<<<<<<< HEAD
 <div class="container">
     <!-- 헤더 영역 -->
     <header class="parchment-box header">
@@ -352,5 +576,162 @@
     </footer>
 </div>
 
+=======
+    <div class="journal-container">
+        <!-- 헤더 및 소개 영역 -->
+        <header class="section visible">
+            <h1>캠핑장 스케치북</h1>
+            <p class="subtitle">모닥불 피워놓고 나누는 우리들의 판타지 일상</p>
+            <div class="tags">
+                <span class="tag">#판타지</span>
+                <span class="tag">#일상</span>
+                <span class="tag">#러브코미디</span>
+            </div>
+        </header>
+
+        <!-- 스토리 소개 -->
+        <section class="section">
+            <h2 class="section-title">끄적끄적, 오늘의 기록</h2>
+            <div class="story-text">
+                <p>도시의 소음을 벗어나 도착한 외딴 숲속의 캠핑장.<br>
+                그곳에서 만난 건 각자의 비밀을 간직한 마법 같은 존재들이었다.</p>
+            </div>
+        </section>
+
+        <!-- 캐릭터 소개 (onclick 속성으로 팝업 열기 연결) -->
+        <section class="section">
+            <h2 class="section-title">함께하는 친구들</h2>
+            <p style="text-align: center; color: #888; font-size: 1rem; margin-bottom: 20px;">사진을 클릭하면 자세한 일지가 나옵니다 ✏️</p>
+            
+            <div class="character-grid">
+                <!-- 캐릭터 1 -->
+                <div class="character-card" onclick="openModal('luna')">
+                    <!-- 이미지가 없을 때를 대비해 기본 회색 썸네일을 넣었습니다. github에 올린 이미지 경로로 수정하세요! -->
+                    <img src="./camp/luna.png" onerror="this.src='https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Luna+Image'" alt="루나" class="char-img">
+                    <div class="char-name">루나 (Luna)</div>
+                    <div class="char-desc">"불멍이 제일 좋아."</div>
+                </div>
+
+                <!-- 캐릭터 2 -->
+                <div class="character-card" onclick="openModal('ian')">
+                    <img src="./camp/ian.png" onerror="this.src='https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Ian+Image'" alt="이안" class="char-img">
+                    <div class="char-name">이안 (Ian)</div>
+                    <div class="char-desc">"텐트 치는 건 내게 맡겨!"</div>
+                </div>
+
+                <!-- 캐릭터 3 -->
+                <div class="character-card" onclick="openModal('erel')">
+                    <img src="./camp/erel.png" onerror="this.src='https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Erel+Image'" alt="에르엘" class="char-img">
+                    <div class="char-name">에르엘 (Erel)</div>
+                    <div class="char-desc">"마시멜로는 꼭 구워야지."</div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            &copy; 2026 별빛 아래 캠핑 일지.
+        </footer>
+    </div>
+
+    <!-- ================= 캐릭터 상세정보 모달창 HTML ================= -->
+    <div class="modal-overlay" id="characterModal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <!-- X 버튼 -->
+            <span class="modal-close" onclick="closeModal(event)">&times;</span>
+            
+            <img src="" alt="캐릭터 상세" class="modal-img" id="modalImg">
+            <h2 class="modal-name" id="modalName">캐릭터 이름</h2>
+            
+            <div class="modal-traits" id="modalTraits">
+                <!-- 자바스크립트로 특징(MBTI, 종족 등) 태그가 들어갑니다 -->
+            </div>
+            
+            <p class="modal-detail" id="modalDetail">
+                캐릭터의 상세한 성격, 스토리, 배경 등이 들어가는 자리입니다.
+            </p>
+        </div>
+    </div>
+
+    <!-- ================= 스크립트 ================= -->
+    <script>
+        // 1. 스크롤 애니메이션 효과
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.section').forEach(section => {
+                if (!section.classList.contains('visible')) observer.observe(section);
+            });
+        });
+
+        // 2. 캐릭터 상세 정보 데이터 (여기에 캐릭터 설정을 자유롭게 적어주세요!)
+        const characterData = {
+            'luna': {
+                name: '루나 (Luna)',
+                img: './camp/luna.png',
+                fallbackImg: 'https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Luna+Image',
+                traits: ['#INFP', '#눈의 정령', '#9w1'],
+                detail: '조용하지만 엉뚱한 매력의 숲의 정령.<br><br>불멍을 제일 좋아하지만, 눈의 정령이라 너무 가까이 가면 녹아버릴까 봐 항상 모닥불에서 조금 멀찍이 떨어져 앉아있다. 밤하늘의 별자리 관측이 취미.'
+            },
+            'ian': {
+                name: '이안 (Ian)',
+                img: './camp/ian.png',
+                fallbackImg: 'https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Ian+Image',
+                traits: ['#ESTP', '#인간', '#요리담당'],
+                detail: '어딘가 서툴지만 다정한 소꿉친구.<br><br>캠핑장의 텐트 설치부터 요리까지 궂은일을 도맡아 하지만 가끔 랜턴을 깨먹거나 소금을 설탕으로 착각하는 허당 기질이 있다.'
+            },
+            'erel': {
+                name: '에르엘 (Erel)',
+                img: './camp/erel.png',
+                fallbackImg: 'https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Erel+Image',
+                traits: ['#ENFP', '#마법사', '#마시멜로 매니아'],
+                detail: '맛있는 거엔 진심인 캠핑 매니아 마법사.<br><br>캠핑의 꽃은 구운 마시멜로라고 굳게 믿고 있으며, 완벽한 갈색으로 굽기 위해 불을 조절하는 간단한 불 마법을 연마했다.'
+            }
+        };
+
+        const modal = document.getElementById('characterModal');
+        const mImg = document.getElementById('modalImg');
+        const mName = document.getElementById('modalName');
+        const mTraits = document.getElementById('modalTraits');
+        const mDetail = document.getElementById('modalDetail');
+
+        // 모달 열기
+        function openModal(charId) {
+            const data = characterData[charId];
+            if(!data) return;
+
+            // 데이터 채워넣기
+            mImg.src = data.img;
+            mImg.onerror = function() { this.src = data.fallbackImg; }; // 실제 이미지가 없을 때 대체
+            mName.innerHTML = data.name;
+            mDetail.innerHTML = data.detail;
+            
+            // 태그 렌더링
+            mTraits.innerHTML = '';
+            data.traits.forEach(trait => {
+                const span = document.createElement('span');
+                span.innerText = trait;
+                mTraits.appendChild(span);
+            });
+
+            // 모달 보이기
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 뒤에 스크롤 방지
+        }
+
+        // 모달 닫기
+        function closeModal(e) {
+            // 이벤트 전파 방지 및 오버레이/X버튼 클릭시에만 닫히게 처리
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // 스크롤 원상복구
+        }
+    </script>
+>>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
 </body>
 </html>
