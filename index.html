@@ -3,347 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>별빛 아래 캠핑 일지 - AI 캐릭터 스토리</title>
-    <!-- 귀엽고 아날로그적인 감성을 위해 손글씨 폰트(Gaegu, 칠곡할매체 등) 사용 -->
-    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+    <title>포플라운 캠핑 동호회</title>
+    <!-- 아기자기하고 손글씨 느낌이 나는 구글 폰트 적용 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
     <style>
-        /* ================= Base Styles & Variables ================= */
         :root {
-            --bg-color: #f4eee1; /* 낡은 양피지 배경색 */
-            --paper-color: #fdfaf4; /* 종이색 */
-            --text-dark: #4a3f35; /* 부드러운 흑갈색 텍스트 */
-            --accent-green: #6b8e23; /* 캠핑장 숲 느낌의 올리브 그린 */
-            --accent-orange: #d97746; /* 모닥불 느낌의 오렌지 */
-            --crayon-border: 255px 15px 225px 15px/15px 225px 15px 255px; /* 손으로 그린 듯한 삐뚤빼뚤한 테두리 */
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --bg-color: #f4ebd8; /* 따뜻한 양피지 배경색 */
+            --paper-color: #fbf5e6; /* 밝은 종이색 */
+            --text-color: #4a3b32; /* 진한 갈색 텍스트 */
+            --border-color: #8b6b52; /* 크레용 느낌의 테두리 색 */
+            --highlight: #e8d0a9;
         }
 
         body {
+            font-family: 'Poor Story', cursive;
             background-color: var(--bg-color);
-            /* 종이 질감을 위한 은은한 노이즈 패턴과 그라데이션 */
-            background-image: radial-gradient(#d5cebe 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: var(--text-dark);
-            font-family: 'Gaegu', cursive, sans-serif;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ================= Layout & Containers ================= */
-        .journal-container {
-            max-width: 800px;
-            margin: 40px auto;
-            background-color: var(--paper-color);
-            padding: 40px 30px;
-            border-radius: 10px;
-            border: 2px solid #c2b6a3;
-            box-shadow: 5px 5px 20px rgba(0,0,0,0.08), inset 0 0 40px rgba(210,195,175,0.3);
-            position: relative;
-        }
-
-        /* 일지 스프링 바인딩 느낌을 주는 장식 */
-        .journal-container::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: repeating-linear-gradient(to bottom, transparent, transparent 20px, #d97746 20px, #d97746 24px);
-            opacity: 0.5;
-        }
-
-        /* ================= Typography & Elements ================= */
-        h1, h2, h3 {
-            font-weight: 700;
-            text-align: center;
-            color: var(--text-dark);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 0px rgba(217, 119, 70, 0.2);
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 1.4rem;
-            color: var(--accent-green);
-            margin-bottom: 40px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-
-        .tag {
-            background: #fff;
-            padding: 5px 15px;
-            border: 2px solid var(--text-dark);
-            border-radius: var(--crayon-border);
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            font-weight: bold;
-            box-shadow: 2px 2px 0px var(--text-dark);
-            transition: transform 0.2s ease;
-        }
-
-        .tag:hover {
-            transform: translateY(-3px);
-        }
-
-        /* ================= Sections ================= */
-        .section {
-            margin-bottom: 60px;
-            opacity: 0; /* JS 애니메이션을 위해 숨김 */
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: inline-block;
-            border-bottom: 3px dashed var(--accent-orange);
-            padding-bottom: 5px;
-        }
-
-        .story-text {
-            background: rgba(255, 255, 255, 0.5);
+            color: var(--text-color);
+            margin: 0;
             padding: 20px;
-            border-radius: 15px;
-            border: 2px dashed #c2b6a3;
-            text-align: center;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); /* 부드러운 종이 질감 */
+            line-height: 1.6;
         }
 
-        /* ================= Character Grid (Polaroid Style) ================= */
-        .character-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+        /* 삐뚤빼뚤한 손그림 느낌의 컨테이너 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .character-card {
-            background: #fff;
-            padding: 15px 15px 25px 15px;
-            box-shadow: 3px 5px 15px rgba(0,0,0,0.1);
+        /* 공통 양피지 박스 디자인 (크레용으로 그린 듯한 둥근 테두리) */
+        .parchment-box {
+            background-color: var(--paper-color);
+            border: 3px solid var(--border-color);
+            border-radius: 8px 25px 15px 30px; /* 불규칙한 모서리 */
+            padding: 20px;
+            box-shadow: 4px 4px 10px rgba(139, 107, 82, 0.2);
             position: relative;
-            transform: rotate(-2deg);
-            transition: transform 0.3s ease, z-index 0.3s ease;
         }
 
-        .character-card:nth-child(even) {
-            transform: rotate(3deg);
-        }
-
-        .character-card:hover {
-            transform: scale(1.05) rotate(0deg);
-            z-index: 10;
-        }
-
-        /* 마스킹 테이프 효과 */
-        .character-card::before {
-            content: '';
+        /* 마스킹 테이프 장식 */
+        .tape {
             position: absolute;
             top: -10px;
             left: 50%;
-            transform: translateX(-50%) rotate(-3deg);
-            width: 80px;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 100px;
             height: 25px;
-            background-color: rgba(217, 119, 70, 0.4); /* 반투명한 오렌지 마스킹 테이프 */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            z-index: 2;
+            background-color: rgba(220, 200, 170, 0.7);
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            z-index: 10;
         }
 
-        .img-placeholder {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background: #e2dcd0;
-            border: 2px solid #d1c8b6;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #9c9180;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            /* 크레용으로 칠한 듯한 약간의 질감 느낌 */
-            background-image: linear-gradient(45deg, #e2dcd0 25%, #e8e2d6 25%, #e8e2d6 50%, #e2dcd0 50%, #e2dcd0 75%, #e8e2d6 75%, #e8e2d6 100%);
-            background-size: 4px 4px;
-        }
-
-        .char-name {
-            font-size: 1.6rem;
-            font-weight: bold;
+        /* 헤더 (타이틀 및 메인 배너) */
+        .header {
             text-align: center;
+            border-radius: 20px 10px 30px 15px;
+            background: linear-gradient(to bottom, #fbf5e6, #f2e2c4);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin: 10px 0;
+            color: #5c4033;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        /* 네비게이션 */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-top: 2px dashed var(--border-color);
+            border-bottom: 2px dashed var(--border-color);
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .nav span {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .nav span:hover {
+            color: #a84832;
+        }
+
+        /* 2단 레이아웃 (이야기 소개 & 세계관) */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* 이야기 소개 */
+        .story-intro {
+            font-size: 1.2rem;
+        }
+
+        /* 세계관 (포플라운 지도 느낌) */
+        .map-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .map-item {
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+            width: calc(45% - 20px);
+            box-shadow: 2px 2px 0px var(--border-color);
+        }
+
+        /* 등장인물 섹션 */
+        .characters-wrapper {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        .character-card {
+            min-width: 150px;
+            border: 2px dashed var(--border-color);
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .character-card .img-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: var(--highlight);
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            border: 2px solid var(--border-color);
+        }
+        .character-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .character-desc {
+            font-size: 0.95rem;
+            color: #66554a;
+        }
+
+        /* 하단 2단 (일정 & 체크리스트) */
+        .schedule-timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            position: relative;
+        }
+        .schedule-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            border-top: 3px dashed var(--border-color);
+            z-index: 1;
+        }
+        .timeline-item {
+            z-index: 2;
+            background: var(--paper-color);
+            padding: 10px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 2px 2px 0px var(--border-color);
+        }
+        .timeline-item span {
+            display: block;
+            font-size: 0.9rem;
+            color: #a84832;
             margin-bottom: 5px;
         }
 
-        .char-desc {
-            font-size: 1.1rem;
-            text-align: center;
-            color: #666;
+        .checklist {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .checklist input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #a84832;
         }
 
-        /* ================= Footer ================= */
-        footer {
+        .footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            color: #8c7e6c;
-            border-top: 2px dashed #d1bfae;
+            font-size: 1.3rem;
+            padding: 10px;
         }
 
-        /* ================= Responsive ================= */
-        @media (max-width: 600px) {
-            .journal-container {
-                margin: 15px;
-                padding: 30px 20px;
+        /* 반응형 (모바일) */
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
             }
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 1.2rem; }
-            .character-grid {
-                grid-template-columns: 1fr; /* 모바일에서는 1열 */
-                max-width: 300px;
-                margin-left: auto;
-                margin-right: auto;
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            .schedule-timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .schedule-timeline::before {
+                display: none;
+            }
+            .map-item {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="journal-container">
-        <!-- 헤더 영역 -->
-        <header class="section visible">
-            <h1>캠핑장 스케치북</h1>
-            <p class="subtitle">모닥불 피워놓고 나누는 우리들의 판타지 일상</p>
-            
-            <div class="tags">
-                <span class="tag">#판타지</span>
-                <span class="tag">#일상</span>
-                <span class="tag">#러브코미디</span>
-                <span class="tag">#로맨스</span>
-                <span class="tag">#순애</span>
-                <span class="tag">#캠프</span>
-            </div>
-        </header>
+<div class="container">
+    <!-- 헤더 영역 -->
+    <header class="parchment-box header">
+        <h1>포플라운 캠핑 동호회</h1>
+        <p>겨울의 자유도시 포플라운에서,<br>해산 위기의 캠핑 동호회가 살아남기 위한 소란스럽고 따뜻한 기록</p>
+        <div class="nav">
+            <span>🌲 세계관</span>
+            <span>👥 등장인물</span>
+            <span>⛺ 동호회</span>
+            <span>📜 캠핑 일지</span>
+            <span>📅 심사 일정</span>
+        </div>
+    </header>
 
-        <!-- 스토리 소개 -->
-        <section class="section">
-            <h2 class="section-title">끄적끄적, 오늘의 기록</h2>
-            <div class="story-text">
-                <p>도시의 소음을 벗어나 도착한 외딴 숲속의 캠핑장.<br>
-                그곳에서 만난 건 평범한 캠퍼들이 아니라, 각자의 비밀을 간직한 마법 같은 존재들이었다.</p>
-                <p>타닥타닥 타오르는 모닥불 앞에서 시작되는 몽글몽글하고 풋풋한 일상 러브코미디.<br>
-                우리의 캠핑 일지, 첫 번째 페이지를 넘겨볼까?</p>
-            </div>
+    <div class="grid-2">
+        <!-- 이야기 소개 -->
+        <section class="parchment-box story-intro">
+            <div class="tape"></div>
+            <h2 style="text-align: center;">🌿 이야기 소개 🌿</h2>
+            <p>자유도시 포플라운의 겨울.</p>
+            <p>포플라운 캠핑 동호회는 해산 심사를 앞두고 있습니다.</p>
+            <p>루이즈, 시트리, 페넷, 크레미아는 정해진 기한 전까지 실제 캠핑 활동을 즐기고 캠핑 일지를 제출해야 합니다.</p>
+            <p>과연 네 사람은 따뜻한 추억과 함께 동호회를 지켜낼 수 있을까요?</p>
         </section>
 
-        <!-- 캐릭터 소개 (그리드형) -->
-        <section class="section">
-            <h2 class="section-title">함께하는 친구들</h2>
-            
-            <div class="character-grid">
-                <!-- 캐릭터 1 -->
-                <div class="character-card">
-                    <div class="img-placeholder">
-                        <span>[ 캐릭터 1 이미지 ]</span>
-                    </div>
-                    <div class="char-name">루나 (Luna)</div>
-                    <div class="char-desc">"불멍이 제일 좋아."<br>조용하지만 엉뚱한 매력의 숲의 정령.</div>
-                </div>
-
-                <!-- 캐릭터 2 -->
-                <div class="character-card">
-                    <div class="img-placeholder">
-                        <span>[ 캐릭터 2 이미지 ]</span>
-                    </div>
-                    <div class="char-name">이안 (Ian)</div>
-                    <div class="char-desc">"텐트 치는 건 내게 맡겨!"<br>어딘가 서툴지만 다정한 소꿉친구.</div>
-                </div>
-
-                <!-- 캐릭터 3 -->
-                <div class="character-card">
-                    <div class="img-placeholder">
-                        <span>[ 캐릭터 3 이미지 ]</span>
-                    </div>
-                    <div class="char-name">에르엘 (Erel)</div>
-                    <div class="char-desc">"마시멜로는 꼭 구워야지."<br>맛있는 거엔 진심인 캠핑 매니아 마법사.</div>
-                </div>
+        <!-- 세계관 지도 -->
+        <section class="parchment-box">
+            <div class="tape"></div>
+            <h2 style="text-align: center;">🗺️ 자유도시 포플라운</h2>
+            <div class="map-section">
+                <div class="map-item">중앙 상업구</div>
+                <div class="map-item">벨리온 산림</div>
+                <div class="map-item">리베르 강</div>
+                <div class="map-item">남쪽 관문지대</div>
+                <div class="map-item">북쪽 주거구</div>
             </div>
         </section>
-        
-        <!-- CTA / 마무리 -->
-        <section class="section" style="text-align: center;">
-            <p style="font-size: 1.3rem; margin-bottom: 20px;">더 많은 이야기가 궁금하다면?</p>
-            <!-- 크레용 스타일 버튼 -->
-            <a href="#" style="
-                display: inline-block;
-                background: var(--accent-orange);
-                color: #fff;
-                text-decoration: none;
-                padding: 10px 30px;
-                font-size: 1.5rem;
-                font-weight: bold;
-                border-radius: var(--crayon-border);
-                box-shadow: 3px 3px 0px var(--text-dark);
-                transition: transform 0.1s;
-            " onmousedown="this.style.transform='translate(2px, 2px)'; this.style.boxShadow='1px 1px 0px var(--text-dark)';" 
-               onmouseup="this.style.transform='none'; this.style.boxShadow='3px 3px 0px var(--text-dark)';">
-                일지 함께 쓰기
-            </a>
-        </section>
-
-        <footer>
-            &copy; 2026 별빛 아래 캠핑 일지. All rights reserved.
-        </footer>
     </div>
 
-    <!-- 스크롤 시 부드럽게 요소들이 나타나는 JS 효과 -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Intersection Observer를 사용하여 스크롤 애니메이션 구현
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15 // 요소가 15% 보일 때 애니메이션 트리거
-            };
+    <!-- 등장인물 -->
+    <section class="parchment-box">
+        <h2 style="text-align: center;">🐾 등장인물 🐾</h2>
+        <div class="characters-wrapper">
+            <div class="character-card">
+                <div class="img-placeholder" style="background-color: #dcedc1;"></div>
+                <div class="character-name">루이즈 프람벨라</div>
+                <div class="character-desc">다정한 임시 회장<br>캠핑 지식 최고</div>
+            </div>
+            <div class="character-card">
+                <div class="img-placeholder" style="background-color: #ffd3b6;"></div>
+                <div class="character-name">시트리</div>
+                <div class="character-desc">틱틱대는 마법사<br>집순이, 생활 마법</div>
+            </div>
+            <div class="character-card">
+                <div class="img-placeholder" style="background-color: #a8e6cf;"></div>
+                <div class="character-name">페넷 올리베르</div>
+                <div class="character-desc">과묵한 늑대 수인<br>운동, 현지조달 담당</div>
+            </div>
+            <div class="character-card">
+                <div class="img-placeholder" style="background-color: #ffaaa5;"></div>
+                <div class="character-name">크레미아 메리엘</div>
+                <div class="character-desc">조심한 실사관<br>해산 방지 일지 작성</div>
+            </div>
+            <div class="character-card">
+                <div class="img-placeholder" style="background-color: #ff8b94;"></div>
+                <div class="character-name">리모네 베르무아</div>
+                <div class="character-desc">원래 회장<br>특종 기자 (부재중)</div>
+            </div>
+        </div>
+    </section>
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target); // 한 번 보이면 계속 유지
-                    }
-                });
-            }, observerOptions);
+    <div class="grid-2">
+        <!-- 심사 일정 -->
+        <section class="parchment-box">
+            <h2 style="text-align: center;">🕒 해산 심사 일정 🕒</h2>
+            <div class="schedule-timeline">
+                <div class="timeline-item">
+                    <span>12월 2일 ~ 3일</span>
+                    해산 심사 기간
+                </div>
+                <div class="timeline-item">
+                    <span>12월 3일</span>
+                    리모네 복귀 예정
+                </div>
+                <div class="timeline-item">
+                    <span>12월 4일</span>
+                    심사 결과 공개
+                </div>
+            </div>
+        </section>
 
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                // 첫 번째 헤더는 이미 visible 클래스가 있으므로 스킵
-                if (!section.classList.contains('visible')) {
-                    observer.observe(section);
-                }
-            });
-        });
-    </script>
+        <!-- 캠핑 일지 -->
+        <section class="parchment-box">
+            <div class="tape"></div>
+            <h2 style="text-align: center;">📝 캠핑 일지 체크리스트</h2>
+            <ul class="checklist">
+                <li><input type="checkbox"> ⛺ 텐트 설치</li>
+                <li><input type="checkbox"> 🪵 장작 마련</li>
+                <li><input type="checkbox"> 🧺 채집</li>
+                <li><input type="checkbox"> 🎣 낚시</li>
+                <li><input type="checkbox"> 🔥 모닥불</li>
+                <li><input type="checkbox"> 🍲 요리/식사</li>
+                <li><input type="checkbox"> ✨ 밤하늘 감상</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="parchment-box footer">
+        이 겨울, 작은 모닥불 하나가 동호회를 지킬 수 있을까요? 🐻
+    </footer>
+</div>
+
 </body>
 </html>
