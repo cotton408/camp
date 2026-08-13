@@ -3,735 +3,704 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>포플라운 캠핑 동호회</title>
-    <!-- 아기자기하고 손글씨 느낌이 나는 구글 폰트 적용 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
-=======
-    <title>별빛 아래 캠핑 일지 - AI 캐릭터 스토리</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
->>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
+    <title>캠핑 동호회는 살아남고 싶다</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <style>
+        /* 기본 설정 및 파스텔 톤 색상 변수 */
         :root {
-<<<<<<< HEAD
-            --bg-color: #f4ebd8; /* 따뜻한 양피지 배경색 */
-            --paper-color: #fbf5e6; /* 밝은 종이색 */
-            --text-color: #4a3b32; /* 진한 갈색 텍스트 */
-            --border-color: #8b6b52; /* 크레용 느낌의 테두리 색 */
-            --highlight: #e8d0a9;
-=======
-            --bg-color: #f4eee1; 
-            --paper-color: #fdfaf4; 
-            --text-dark: #4a3f35; 
-            --accent-green: #6b8e23; 
-            --accent-orange: #d97746; 
-            --crayon-border: 255px 15px 225px 15px/15px 225px 15px 255px; 
+            --bg-color: #fdfbf7;
+            --text-color: #4a4a4a;
+            --point-color: #8fa68a;
+            --card-bg: #ffffff;
+            --border-color: #e5e0d8;
+            --world-bg: #f4f7f2;
+            --group-bg1: #fdf4f0;
+            --group-bg2: #f0f6fa;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
->>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
         }
 
         body {
-            font-family: 'Poor Story', cursive;
+            font-family: 'Gowun Dodum', sans-serif;
             background-color: var(--bg-color);
-<<<<<<< HEAD
             color: var(--text-color);
-            margin: 0;
-=======
-            background-image: radial-gradient(#d5cebe 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: var(--text-dark);
-            font-family: 'Gaegu', cursive, sans-serif;
-            font-size: 1.2rem;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        .journal-container {
-            max-width: 800px;
-            margin: 40px auto;
-            background-color: var(--paper-color);
-            padding: 40px 30px;
-            border-radius: 10px;
-            border: 2px solid #c2b6a3;
-            box-shadow: 5px 5px 20px rgba(0,0,0,0.08), inset 0 0 40px rgba(210,195,175,0.3);
-            position: relative;
-        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-        .journal-container::before {
-            content: '';
-            position: absolute;
-            left: 20px;
+        /* 네비게이션바 */
+        header {
+            background-color: rgba(253, 251, 247, 0.9);
+            position: sticky;
             top: 0;
-            bottom: 0;
-            width: 2px;
-            background: repeating-linear-gradient(to bottom, transparent, transparent 20px, #d97746 20px, #d97746 24px);
-            opacity: 0.5;
+            z-index: 100;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px dashed var(--border-color);
         }
-
-        h1, h2, h3 { font-weight: 700; text-align: center; color: var(--text-dark); }
-        h1 { font-size: 2.8rem; margin-bottom: 10px; text-shadow: 2px 2px 0px rgba(217, 119, 70, 0.2); }
         
-        .subtitle { text-align: center; font-size: 1.4rem; color: var(--accent-green); margin-bottom: 40px; }
-
-        .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; }
-        .tag {
-            background: #fff;
-            padding: 5px 15px;
-            border: 2px solid var(--text-dark);
-            border-radius: var(--crayon-border);
-            font-size: 1.1rem;
-            color: var(--text-dark);
+        nav ul {
+            display: flex;
+            gap: 30px;
             font-weight: bold;
-            box-shadow: 2px 2px 0px var(--text-dark);
-            transition: transform 0.2s ease;
         }
-        .tag:hover { transform: translateY(-3px); }
-
-        .section {
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .section.visible { opacity: 1; transform: translateY(0); }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: inline-block;
-            border-bottom: 3px dashed var(--accent-orange);
-            padding-bottom: 5px;
+        
+        nav a:hover {
+            color: var(--point-color);
         }
 
-        .story-text {
-            background: rgba(255, 255, 255, 0.5);
->>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
-            padding: 20px;
-            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); /* 부드러운 종이 질감 */
-            line-height: 1.6;
-        }
-
-<<<<<<< HEAD
-        /* 삐뚤빼뚤한 손그림 느낌의 컨테이너 */
-        .container {
+        /* 공통 섹션 스타일 */
+        section {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-=======
-        /* ================= Character Grid ================= */
-        .character-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
->>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+        }
+        .section-title::before {
+            content: '⛺';
+            font-size: 1.2rem;
         }
 
-        /* 공통 양피지 박스 디자인 (크레용으로 그린 듯한 둥근 테두리) */
-        .parchment-box {
-            background-color: var(--paper-color);
-            border: 3px solid var(--border-color);
-            border-radius: 8px 25px 15px 30px; /* 불규칙한 모서리 */
-            padding: 20px;
-            box-shadow: 4px 4px 10px rgba(139, 107, 82, 0.2);
-            position: relative;
-<<<<<<< HEAD
-=======
-            transform: rotate(-2deg);
-            transition: transform 0.3s ease, z-index 0.3s ease;
-            cursor: pointer; /* 클릭 가능하다는 표시 */
->>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
-        }
-        .character-card:nth-child(even) { transform: rotate(3deg); }
-        .character-card:hover { transform: scale(1.05) rotate(0deg); z-index: 10; }
-
-<<<<<<< HEAD
-        /* 마스킹 테이프 장식 */
-        .tape {
-=======
-        .character-card::before {
-            content: '';
->>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-2deg);
-            width: 100px;
-            height: 25px;
-<<<<<<< HEAD
-            background-color: rgba(220, 200, 170, 0.7);
-            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-            z-index: 10;
-        }
-
-        /* 헤더 (타이틀 및 메인 배너) */
-        .header {
+        /* 히어로 섹션 (로고 및 소개) */
+        .hero {
             text-align: center;
-            border-radius: 20px 10px 30px 15px;
-            background: linear-gradient(to bottom, #fbf5e6, #f2e2c4);
+            padding: 80px 20px;
+            background: linear-gradient(to bottom, #eef5f9, var(--bg-color));
         }
-
-        .header h1 {
-            font-size: 2.8rem;
-            margin: 10px 0;
-            color: #5c4033;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .header p {
-            font-size: 1.3rem;
+        .hero img {
+            max-width: 80%;
+            height: auto;
             margin-bottom: 20px;
         }
+        .tags {
+            margin-bottom: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        .tags span {
+            display: inline-block;
+            background: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            margin: 0 5px;
+        }
+        .hero-desc {
+            font-size: 1.1rem;
+            font-weight: bold;
+            line-height: 1.8;
+        }
 
-        /* 네비게이션 */
-        .nav {
+        /* 세계관 섹션 */
+        .world-container {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            border-top: 2px dashed var(--border-color);
-            border-bottom: 2px dashed var(--border-color);
-            padding: 10px 0;
-            margin-top: 20px;
+            flex-direction: column;
+            align-items: center;
+            gap: 35px;
+            background-color: var(--world-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
         }
-        .nav span {
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-        .nav span:hover {
-            color: #a84832;
-        }
-
-        /* 2단 레이아웃 (이야기 소개 & 세계관) */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        /* 이야기 소개 */
-        .story-intro {
-            font-size: 1.2rem;
-        }
-
-        /* 세계관 (포플라운 지도 느낌) */
-        .map-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        .map-item {
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            padding: 10px;
-            background-color: #fff;
+        .world-desc {
             text-align: center;
-            width: calc(45% - 20px);
-            box-shadow: 2px 2px 0px var(--border-color);
+        }
+        .world-desc h3 {
+            font-size: 1.6rem;
+            color: var(--point-color);
+            margin-bottom: 10px;
+        }
+        .world-desc p {
+            font-size: 1.05rem;
+        }
+        .world-map {
+            width: 100%;
+            text-align: center;
+        }
+        .world-map img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* 공통 강조(하이라이트) 디자인 */
+        .highlight {
+            color: #d17565;
+            background-color: #fcebe6;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: bold;
         }
 
-        /* 등장인물 섹션 */
-        .characters-wrapper {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            padding-bottom: 10px;
+        /* 특별한 규칙 디자인 */
+        .rule-box {
+            background-color: #fffaf0;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e8bc9e;
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 8px 20px rgba(232, 188, 158, 0.25);
         }
-        .character-card {
-            min-width: 150px;
-            border: 2px dashed var(--border-color);
-            border-radius: 10px;
-            background-color: #fff;
+        .rule-title {
+            color: #d17565;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .rule-title::before {
+            content: '📜';
+            font-size: 1.4rem;
+        }
+        .rule-content {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        /* 등장 집단 및 인물 통합 섹션 */
+        .group-section {
+            margin-bottom: 50px;
+        }
+        .group-card {
+            padding: 25px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+        .group-card.camp { background-color: var(--group-bg1); }
+        .group-card.office { background-color: var(--group-bg2); }
+        .group-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #d17565;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .group-card.office h3 { color: #5b8db8; }
+        .group-card p {
+            line-height: 1.8;
+        }
+        
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .char-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
             padding: 15px;
             text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .character-card .img-placeholder {
-            width: 80px;
-            height: 80px;
-            background-color: var(--highlight);
-            border-radius: 50%;
-            margin: 0 auto 10px;
-            border: 2px solid var(--border-color);
-        }
-        .character-name {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        .character-desc {
-            font-size: 0.95rem;
-            color: #66554a;
+        .char-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        /* 하단 2단 (일정 & 체크리스트) */
-        .schedule-timeline {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            position: relative;
-        }
-        .schedule-timeline::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            border-top: 3px dashed var(--border-color);
-            z-index: 1;
-        }
-        .timeline-item {
-            z-index: 2;
-            background: var(--paper-color);
-            padding: 10px 15px;
-            border: 2px solid var(--border-color);
-            border-radius: 15px;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 2px 2px 0px var(--border-color);
-        }
-        .timeline-item span {
-            display: block;
-            font-size: 0.9rem;
-            color: #a84832;
-            margin-bottom: 5px;
-        }
-
-        .checklist {
-            list-style: none;
-            padding: 0;
-            font-size: 1.2rem;
-        }
-        .checklist li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .checklist input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: #a84832;
-        }
-
-        .footer {
-            text-align: center;
-            font-size: 1.3rem;
-            padding: 10px;
-        }
-
-        /* 반응형 (모바일) */
-        @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-            .header h1 {
-                font-size: 2.2rem;
-            }
-            .schedule-timeline {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .schedule-timeline::before {
-                display: none;
-            }
-            .map-item {
-                width: 100%;
-            }
-=======
-            background-color: rgba(217, 119, 70, 0.4); 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            z-index: 2;
-        }
-
-        /* 변경된 이미지 스타일 */
+        /* 캐릭터 카드 이미지 스타일 */
         .char-img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover; /* 이미지가 찌그러지지 않게 꽉 차게 조절 */
-            background: #e2dcd0;
-            border: 2px solid #d1c8b6;
-            border-radius: 4px;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 10px;
             margin-bottom: 15px;
-            background-image: linear-gradient(45deg, #e2dcd0 25%, #e8e2d6 25%, #e8e2d6 50%, #e2dcd0 50%, #e2dcd0 75%, #e8e2d6 75%, #e8e2d6 100%);
-            background-size: 4px 4px;
+            display: block;
+            background-color: #eee;
         }
 
-        .char-name { font-size: 1.6rem; font-weight: bold; text-align: center; margin-bottom: 5px; }
-        .char-desc { font-size: 1.1rem; text-align: center; color: #666; }
+        .char-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .char-role {
+            font-size: 0.85rem;
+            color: #777;
+            line-height: 1.4;
+        }
 
-        footer { text-align: center; padding: 20px; margin-top: 40px; color: #8c7e6c; border-top: 2px dashed #d1bfae; }
-
-        /* ================= Modal (팝업창) Styles ================= */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+        /* 일정 소개 섹션 */
+        .schedule-container {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .schedule-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+        }
+        .step-num {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: var(--point-color);
+            color: white;
+            border-radius: 50%;
+            line-height: 30px;
+            margin-bottom: 10px;
+        }
+        .step-title { font-weight: bold; margin-bottom: 5px; }
+        .step-desc { font-size: 0.85rem; color: #666; }
+
+        /* 모달 (캐릭터 상세 정보) - 페이드 효과 적용 */
+        .modal-overlay {
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease;
-            z-index: 999;
-            backdrop-filter: blur(3px); /* 배경을 살짝 흐리게 */
+            display: flex; /* Flex를 유지한 채 opacity와 visibility로 조절 */
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
-        .modal-overlay.active {
+        .modal-overlay.show {
             opacity: 1;
             visibility: visible;
         }
-
-        .modal-content {
-            background: var(--paper-color);
-            padding: 40px 30px 30px;
-            width: 90%;
-            max-width: 450px;
-            border: 3px solid var(--text-dark);
-            border-radius: var(--crayon-border); /* 크레용 테두리 느낌 */
-            box-shadow: 6px 6px 0px var(--text-dark);
-            position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--text-dark);
-            cursor: pointer;
-            line-height: 1;
-        }
-        .modal-close:hover { color: var(--accent-orange); }
-
-        .modal-img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px dashed var(--accent-green);
-            margin: 0 auto 20px;
-            display: block;
-        }
-
-        .modal-name { font-size: 2.2rem; margin-bottom: 10px; color: var(--text-dark); }
-        .modal-detail { font-size: 1.2rem; color: #555; line-height: 1.7; word-break: keep-all; }
         
-        .modal-traits {
+        .modal-content {
+            background: #fff;
+            width: 100%;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 24px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            /* 살짝 위로 올라오는 애니메이션 효과 */
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #666;
+            z-index: 10;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .close-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* 이미지 및 그라데이션 페이드 효과 스타일 */
+        .modal-img-container {
+            position: relative;
+            width: 100%;
+            max-height: 320px;
+            overflow: hidden;
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin: 15px 0;
-            flex-wrap: wrap;
+            align-items: flex-start;
+            background-color: #f7f5f0;
         }
-        .modal-traits span {
-            background: var(--bg-color);
-            padding: 4px 10px;
-            border: 1px solid #c2b6a3;
-            border-radius: 10px;
-            font-size: 1rem;
-            color: var(--accent-orange);
+        .modal-img-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 85%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 85%);
         }
 
-        @media (max-width: 600px) {
-            .journal-container { margin: 15px; padding: 30px 20px; }
-            h1 { font-size: 2.2rem; }
-            .character-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
->>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
+        .modal-inner-padding {
+            padding: 10px 35px 35px 35px;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 20px;
+        }
+        .modal-header h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .modal-header p {
+            color: #777;
+            font-size: 1.05rem;
+        }
+
+        /* 상세 설명 내용 폰트 크기 확대 및 스타일 정의 */
+        .modal-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .modal-body h4 {
+            color: var(--point-color);
+            font-size: 1.25rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .modal-body h4::before {
+            content: '✦';
+            font-size: 0.9rem;
+        }
+        .modal-body p {
+            color: #444;
+            margin-bottom: 12px;
+            word-break: keep-all;
+        }
+        .info-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+        .info-list li {
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .schedule-container { flex-direction: column; }
+            header { padding: 10px; }
+            nav ul { gap: 15px; font-size: 0.9rem; }
+            .modal-inner-padding { padding: 10px 20px 25px 20px; }
+            .modal-header h2 { font-size: 1.5rem; }
+            .modal-body { font-size: 1rem; }
+            .rule-box { padding: 20px; }
+            .rule-content { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-<<<<<<< HEAD
-<div class="container">
-    <!-- 헤더 영역 -->
-    <header class="parchment-box header">
-        <h1>포플라운 캠핑 동호회</h1>
-        <p>겨울의 자유도시 포플라운에서,<br>해산 위기의 캠핑 동호회가 살아남기 위한 소란스럽고 따뜻한 기록</p>
-        <div class="nav">
-            <span>🌲 세계관</span>
-            <span>👥 등장인물</span>
-            <span>⛺ 동호회</span>
-            <span>📜 캠핑 일지</span>
-            <span>📅 심사 일정</span>
-        </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#world">세계관</a></li>
+                <li><a href="#groups-characters">등장 집단 & 인물</a></li>
+                <li><a href="#schedule">일정</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="grid-2">
-        <!-- 이야기 소개 -->
-        <section class="parchment-box story-intro">
-            <div class="tape"></div>
-            <h2 style="text-align: center;">🌿 이야기 소개 🌿</h2>
-            <p>자유도시 포플라운의 겨울.</p>
-            <p>포플라운 캠핑 동호회는 해산 심사를 앞두고 있습니다.</p>
-            <p>루이즈, 시트리, 페넷, 크레미아는 정해진 기한 전까지 실제 캠핑 활동을 즐기고 캠핑 일지를 제출해야 합니다.</p>
-            <p>과연 네 사람은 따뜻한 추억과 함께 동호회를 지켜낼 수 있을까요?</p>
-        </section>
-
-        <!-- 세계관 지도 -->
-        <section class="parchment-box">
-            <div class="tape"></div>
-            <h2 style="text-align: center;">🗺️ 자유도시 포플라운</h2>
-            <div class="map-section">
-                <div class="map-item">중앙 상업구</div>
-                <div class="map-item">벨리온 산림</div>
-                <div class="map-item">리베르 강</div>
-                <div class="map-item">남쪽 관문지대</div>
-                <div class="map-item">북쪽 주거구</div>
-            </div>
-        </section>
+    <div class="hero">
+        <img src="https://cdn.jsdelivr.net/gh/cotton408/camp/logo5.png" alt="캠핑 동호회는 살아남고 싶다 로고">
+        <div class="tags">
+            <span>코미디</span> <span>일상</span> <span>판타지</span> <span>로맨스 판타지</span>
+        </div>
+        <p class="hero-desc">
+            각자의 사정으로 캠프 동호회에 들어온 멤버들<br>
+            그런데 갑작스럽게 닥쳐온 <span class="highlight">해산 위기</span>!<br><br>
+            해산되면 힘들고 귀찮은 공동체로 가야한다!<br><br>
+            과연 캠프 동호회 멤버들은<br>
+            무사히 캠프를 마치고 동호회도 지킬 수 있을 것인가!
+        </p>
     </div>
 
-    <!-- 등장인물 -->
-    <section class="parchment-box">
-        <h2 style="text-align: center;">🐾 등장인물 🐾</h2>
-        <div class="characters-wrapper">
-            <div class="character-card">
-                <div class="img-placeholder" style="background-color: #dcedc1;"></div>
-                <div class="character-name">루이즈 프람벨라</div>
-                <div class="character-desc">다정한 임시 회장<br>캠핑 지식 최고</div>
+    <!-- 세계관 섹션 -->
+    <section id="world">
+        <h2 class="section-title">세계관 소개</h2>
+        <div class="world-container">
+            
+            <div class="world-desc">
+                <h3>포플라운 자유도시</h3>
+                <p>제국과 왕국 사이에 위치한 독립 자유도시, 포플라운.<br>활발한 상업과 교류가 이루어지는 이곳은 다섯 개의 지역으로 이루어진 작지만 자유로운 도시입니다.</p>
             </div>
-            <div class="character-card">
-                <div class="img-placeholder" style="background-color: #ffd3b6;"></div>
-                <div class="character-name">시트리</div>
-                <div class="character-desc">틱틱대는 마법사<br>집순이, 생활 마법</div>
+            
+            <div class="world-map">
+                <img src="https://cdn.jsdelivr.net/gh/cotton408/camp/map1.png" alt="포플라운 지도">
             </div>
-            <div class="character-card">
-                <div class="img-placeholder" style="background-color: #a8e6cf;"></div>
-                <div class="character-name">페넷 올리베르</div>
-                <div class="character-desc">과묵한 늑대 수인<br>운동, 현지조달 담당</div>
+
+            <div class="rule-box">
+                <div class="rule-title">포플라운의 특별한 규칙</div>
+                <div class="rule-content">
+                    포플라운의 성인 시민은 특정 공무원을 제외하고<br>
+                    <span class="highlight">반드시 하나 이상의 '생활 공동체'에 소속</span>되어야 합니다.
+                </div>
             </div>
-            <div class="character-card">
-                <div class="img-placeholder" style="background-color: #ffaaa5;"></div>
-                <div class="character-name">크레미아 메리엘</div>
-                <div class="character-desc">조심한 실사관<br>해산 방지 일지 작성</div>
+
+        </div>
+    </section>
+
+    <!-- 집단 및 캐릭터 통합 섹션 -->
+    <section id="groups-characters">
+        <h2 class="section-title">등장 집단 & 인물 소개</h2>
+
+        <!-- 캠프 동호회 그룹 -->
+        <div class="group-section">
+            <div class="group-card camp">
+                <h3>🏕️ 캠프 동호회</h3>
+                <p>한때는 많은 인원이 함께하며 활발히 활동하던 동호회였지만, 마수 재해와 왕국의 봉쇄 이후 회원들이 하나둘 떠나며<br>
+                지금은 거의 <span class="highlight">유령 동호회</span>가 되었다. 공터 야영은 불법이라 지정된 캠핑장에서만 활동이 가능하다.</p>
             </div>
-            <div class="character-card">
-                <div class="img-placeholder" style="background-color: #ff8b94;"></div>
-                <div class="character-name">리모네 베르무아</div>
-                <div class="character-desc">원래 회장<br>특종 기자 (부재중)</div>
+            <div class="characters-grid" id="camp-grid">
+                <!-- 자바스크립트로 렌더링 됩니다 -->
+            </div>
+        </div>
+
+        <!-- 공동체 관리청 그룹 -->
+        <div class="group-section">
+            <div class="group-card office">
+                <h3>🏢 공동체 관리청</h3>
+                <p>포플라운 내 모든 생활 공동체를 등록·심사·관리·해산하는 공공기관.<br>
+                시민들의 안전한 공동체 생활을 위해 공정하고 엄격하게 업무를 수행한다.<br>
+                미소속 기간이 길어지면 빈자리가 있는 공동체에 <span class="highlight">강제 배정</span>하기도 한다.</p>
+            </div>
+            <div class="characters-grid" id="office-grid">
+                <!-- 자바스크립트로 렌더링 됩니다 -->
             </div>
         </div>
     </section>
 
-    <div class="grid-2">
-        <!-- 심사 일정 -->
-        <section class="parchment-box">
-            <h2 style="text-align: center;">🕒 해산 심사 일정 🕒</h2>
-            <div class="schedule-timeline">
-                <div class="timeline-item">
-                    <span>12월 2일 ~ 3일</span>
-                    해산 심사 기간
-                </div>
-                <div class="timeline-item">
-                    <span>12월 3일</span>
-                    리모네 복귀 예정
-                </div>
-                <div class="timeline-item">
-                    <span>12월 4일</span>
-                    심사 결과 공개
-                </div>
+    <section id="schedule">
+        <h2 class="section-title">일정 소개</h2>
+        <div class="schedule-container">
+            <div class="schedule-step">
+                <span class="step-num">1</span>
+                <div class="step-title">캠프 동호회 캠프 기간</div>
+                <div class="step-desc">12월 2일 ~<br>동료들과 함께 캠핑을 즐기는 시간!</div>
             </div>
-        </section>
-
-        <!-- 캠핑 일지 -->
-        <section class="parchment-box">
-            <div class="tape"></div>
-            <h2 style="text-align: center;">📝 캠핑 일지 체크리스트</h2>
-            <ul class="checklist">
-                <li><input type="checkbox"> ⛺ 텐트 설치</li>
-                <li><input type="checkbox"> 🪵 장작 마련</li>
-                <li><input type="checkbox"> 🧺 채집</li>
-                <li><input type="checkbox"> 🎣 낚시</li>
-                <li><input type="checkbox"> 🔥 모닥불</li>
-                <li><input type="checkbox"> 🍲 요리/식사</li>
-                <li><input type="checkbox"> ✨ 밤하늘 감상</li>
-            </ul>
-        </section>
-    </div>
-
-    <!-- 푸터 -->
-    <footer class="parchment-box footer">
-        이 겨울, 작은 모닥불 하나가 동호회를 지킬 수 있을까요? 🐻
-    </footer>
-</div>
-
-=======
-    <div class="journal-container">
-        <!-- 헤더 및 소개 영역 -->
-        <header class="section visible">
-            <h1>캠핑장 스케치북</h1>
-            <p class="subtitle">모닥불 피워놓고 나누는 우리들의 판타지 일상</p>
-            <div class="tags">
-                <span class="tag">#판타지</span>
-                <span class="tag">#일상</span>
-                <span class="tag">#러브코미디</span>
+            <div class="schedule-step">
+                <span class="step-num">2</span>
+                <div class="step-title">해산 심사 기간</div>
+                <div class="step-desc">12월 4일<br>관리청의 심사가 진행되는 기간</div>
             </div>
-        </header>
-
-        <!-- 스토리 소개 -->
-        <section class="section">
-            <h2 class="section-title">끄적끄적, 오늘의 기록</h2>
-            <div class="story-text">
-                <p>도시의 소음을 벗어나 도착한 외딴 숲속의 캠핑장.<br>
-                그곳에서 만난 건 각자의 비밀을 간직한 마법 같은 존재들이었다.</p>
+            <div class="schedule-step">
+                <span class="step-num">3</span>
+                <div class="step-title">심사 결과 공개일</div>
+                <div class="step-desc">12월 5일<br>캠프 동호회의 운명이 결정되는 날!</div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 캐릭터 소개 (onclick 속성으로 팝업 열기 연결) -->
-        <section class="section">
-            <h2 class="section-title">함께하는 친구들</h2>
-            <p style="text-align: center; color: #888; font-size: 1rem; margin-bottom: 20px;">사진을 클릭하면 자세한 일지가 나옵니다 ✏️</p>
+    <!-- 캐릭터 모달 -->
+    <div class="modal-overlay" id="char-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal">&times;</button>
             
-            <div class="character-grid">
-                <!-- 캐릭터 1 -->
-                <div class="character-card" onclick="openModal('luna')">
-                    <!-- 이미지가 없을 때를 대비해 기본 회색 썸네일을 넣었습니다. github에 올린 이미지 경로로 수정하세요! -->
-                    <img src="./camp/luna.png" onerror="this.src='https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Luna+Image'" alt="루나" class="char-img">
-                    <div class="char-name">루나 (Luna)</div>
-                    <div class="char-desc">"불멍이 제일 좋아."</div>
-                </div>
+            <div class="modal-img-container" id="modal-img-box">
+                <!-- 동적으로 <img> 삽입 -->
+            </div>
 
-                <!-- 캐릭터 2 -->
-                <div class="character-card" onclick="openModal('ian')">
-                    <img src="./camp/ian.png" onerror="this.src='https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Ian+Image'" alt="이안" class="char-img">
-                    <div class="char-name">이안 (Ian)</div>
-                    <div class="char-desc">"텐트 치는 건 내게 맡겨!"</div>
+            <div class="modal-inner-padding">
+                <div class="modal-header">
+                    <h2 id="modal-name">이름</h2>
+                    <p id="modal-role"></p>
                 </div>
-
-                <!-- 캐릭터 3 -->
-                <div class="character-card" onclick="openModal('erel')">
-                    <img src="./camp/erel.png" onerror="this.src='https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Erel+Image'" alt="에르엘" class="char-img">
-                    <div class="char-name">에르엘 (Erel)</div>
-                    <div class="char-desc">"마시멜로는 꼭 구워야지."</div>
+                <div class="modal-body" id="modal-body">
+                    <!-- 동적 내용 삽입 -->
                 </div>
             </div>
-        </section>
-        
-        <footer>
-            &copy; 2026 별빛 아래 캠핑 일지.
-        </footer>
-    </div>
-
-    <!-- ================= 캐릭터 상세정보 모달창 HTML ================= -->
-    <div class="modal-overlay" id="characterModal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <!-- X 버튼 -->
-            <span class="modal-close" onclick="closeModal(event)">&times;</span>
-            
-            <img src="" alt="캐릭터 상세" class="modal-img" id="modalImg">
-            <h2 class="modal-name" id="modalName">캐릭터 이름</h2>
-            
-            <div class="modal-traits" id="modalTraits">
-                <!-- 자바스크립트로 특징(MBTI, 종족 등) 태그가 들어갑니다 -->
-            </div>
-            
-            <p class="modal-detail" id="modalDetail">
-                캐릭터의 상세한 성격, 스토리, 배경 등이 들어가는 자리입니다.
-            </p>
         </div>
     </div>
 
-    <!-- ================= 스크립트 ================= -->
     <script>
-        // 1. 스크롤 애니메이션 효과
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15 });
+        const characters = [
+            {
+                id: 'louise',
+                group: 'camp',
+                name: '루이즈',
+                fullName: '루이즈 프람벨라',
+                shortDesc: '따뜻하고 배려심이 깊은<br>캠프 동호회 임시회장',
+                role: '프람벨라 잡화점 조력 / 캠핑 동호회 임시 회장',
+                imageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/2.png',
+                gridImageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/a1.png',
+                info: {
+                    age: '22세',
+                    race: '인간',
+                    height: '160cm'
+                },
+                personality: 'ISFJ / 다정함, 배려심 많음, 보살펴줌',
+                features: '생업과 어린 동생들의 육아를 병행하기 위해 느슨했던 캠핑 동호회에 가입했다.'
+            },
+            {
+                id: 'sitri',
+                group: 'camp',
+                name: '시트리',
+                fullName: '시트리',
+                shortDesc: '겉으로는 차갑지만 속은 여리고<br>의리 있는 마법사',
+                role: '마법사',
+                imageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/5.png',
+                gridImageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/a2.png',
+                info: {
+                    age: '23세',
+                    race: '인간',
+                    height: '157cm'
+                },
+                personality: 'INTP / 츤데레, 개인주의, 집순이',
+                features: '벌레와 흙을 싫어하지만 마법사협회 외부 실적을 채우기 위해 어쩔 수 없이 캠핑 동호회에 가입했다.'
+            },
+            {
+                id: 'fenet',
+                group: 'camp',
+                name: '페넷',
+                fullName: '페넷 올리베르',
+                shortDesc: '말수 적은 늑대 수인<br>묵묵히 맡은 일을 해낸다',
+                role: '마수 운송조합 임시 운반꾼',
+                imageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/8.png',
+                gridImageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/a3.png',
+                info: {
+                    age: '21세',
+                    race: '늑대 수인',
+                    height: '165cm'
+                },
+                personality: 'ISTP / 과묵함, 쿨데레, 귀차니즘',
+                features: '스카웃되는 것이 귀찮아 가장 조용한 야영회에 가입했으며, 파티 내에서 남다른 근력을 자랑한다.'
+            },
+            {
+                id: 'limone',
+                group: 'camp',
+                name: '리모네',
+                fullName: '리모네 베르무아',
+                shortDesc: '밝고 긍정적인 기자이자<br>캠프 동호회의 회장',
+                role: '특종 기자 / 캠핑 동호회 원래 회장',
+                imageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/15.png',
+                gridImageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/a5.png',
+                info: {
+                    age: '28세',
+                    race: '인간',
+                    height: '170cm'
+                },
+                personality: 'ESFP / 쾌활함, 마이페이스, 긍정적',
+                features: '루이즈에게 임시 회장을 맡긴 뒤 취재를 위해 떠나있었으며, 뛰어난 야영 및 생존 능력을 갖추고 있다.'
+            },
+            {
+                id: 'cremia',
+                group: 'office',
+                name: '크레미아',
+                fullName: '크레미아 메리엘',
+                shortDesc: '소심하고 걱정이 많은<br>공동체 관리청 실사관 막내',
+                role: '공동체 관리청 신입 실사관',
+                imageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/11.png',
+                gridImageUrl: 'https://cdn.jsdelivr.net/gh/cotton408/camp/a4.png',
+                info: {
+                    age: '24세',
+                    race: '양 수인',
+                    height: '155cm'
+                },
+                personality: 'ISFJ / 소심함, 다정함, 걱정 과다',
+                features: '동호회 실사를 위해 강제 동행하게 되었으며, 동호회가 해산되면 본인 승급에 불이익이 생겨 해산을 필사적으로 막으려 한다.'
+            }
+        ];
 
-            document.querySelectorAll('.section').forEach(section => {
-                if (!section.classList.contains('visible')) observer.observe(section);
-            });
+        const campGrid = document.getElementById('camp-grid');
+        const officeGrid = document.getElementById('office-grid');
+        const modal = document.getElementById('char-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        characters.forEach((char) => {
+            const card = document.createElement('div');
+            card.className = 'char-card';
+            card.innerHTML = `
+                <img src="${char.gridImageUrl}" alt="${char.name}" class="char-img">
+                <div class="char-name">${char.name}</div>
+                <div class="char-role">${char.shortDesc}</div>
+            `;
+            card.addEventListener('click', () => openModal(char));
+
+            if (char.group === 'camp') {
+                campGrid.appendChild(card);
+            } else if (char.group === 'office') {
+                officeGrid.appendChild(card);
+            }
         });
 
-        // 2. 캐릭터 상세 정보 데이터 (여기에 캐릭터 설정을 자유롭게 적어주세요!)
-        const characterData = {
-            'luna': {
-                name: '루나 (Luna)',
-                img: './camp/luna.png',
-                fallbackImg: 'https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Luna+Image',
-                traits: ['#INFP', '#눈의 정령', '#9w1'],
-                detail: '조용하지만 엉뚱한 매력의 숲의 정령.<br><br>불멍을 제일 좋아하지만, 눈의 정령이라 너무 가까이 가면 녹아버릴까 봐 항상 모닥불에서 조금 멀찍이 떨어져 앉아있다. 밤하늘의 별자리 관측이 취미.'
-            },
-            'ian': {
-                name: '이안 (Ian)',
-                img: './camp/ian.png',
-                fallbackImg: 'https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Ian+Image',
-                traits: ['#ESTP', '#인간', '#요리담당'],
-                detail: '어딘가 서툴지만 다정한 소꿉친구.<br><br>캠핑장의 텐트 설치부터 요리까지 궂은일을 도맡아 하지만 가끔 랜턴을 깨먹거나 소금을 설탕으로 착각하는 허당 기질이 있다.'
-            },
-            'erel': {
-                name: '에르엘 (Erel)',
-                img: './camp/erel.png',
-                fallbackImg: 'https://via.placeholder.com/400x400/e2dcd0/9c9180?text=Erel+Image',
-                traits: ['#ENFP', '#마법사', '#마시멜로 매니아'],
-                detail: '맛있는 거엔 진심인 캠핑 매니아 마법사.<br><br>캠핑의 꽃은 구운 마시멜로라고 굳게 믿고 있으며, 완벽한 갈색으로 굽기 위해 불을 조절하는 간단한 불 마법을 연마했다.'
-            }
-        };
-
-        const modal = document.getElementById('characterModal');
-        const mImg = document.getElementById('modalImg');
-        const mName = document.getElementById('modalName');
-        const mTraits = document.getElementById('modalTraits');
-        const mDetail = document.getElementById('modalDetail');
-
-        // 모달 열기
-        function openModal(charId) {
-            const data = characterData[charId];
-            if(!data) return;
-
-            // 데이터 채워넣기
-            mImg.src = data.img;
-            mImg.onerror = function() { this.src = data.fallbackImg; }; // 실제 이미지가 없을 때 대체
-            mName.innerHTML = data.name;
-            mDetail.innerHTML = data.detail;
+        function openModal(char) {
+            const imgBox = document.getElementById('modal-img-box');
             
-            // 태그 렌더링
-            mTraits.innerHTML = '';
-            data.traits.forEach(trait => {
-                const span = document.createElement('span');
-                span.innerText = trait;
-                mTraits.appendChild(span);
-            });
+            if (char.imageUrl) {
+                imgBox.innerHTML = `<img src="${char.imageUrl}" alt="${char.fullName}">`;
+                imgBox.style.display = 'flex';
+            } else {
+                imgBox.innerHTML = '';
+                imgBox.style.display = 'none';
+            }
 
-            // 모달 보이기
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // 뒤에 스크롤 방지
+            document.getElementById('modal-name').innerText = char.fullName;
+            document.getElementById('modal-role').innerText = char.role;
+            
+            const modalBody = document.getElementById('modal-body');
+            
+            modalBody.innerHTML = `
+                <h4>기본 정보</h4>
+                <ul class="info-list">
+                    <li>• <strong>이름</strong> : ${char.fullName}</li>
+                    <li>• <strong>나이</strong> : ${char.info.age}</li>
+                    <li>• <strong>종족</strong> : ${char.info.race}</li>
+                    <li>• <strong>키</strong> : ${char.info.height}</li>
+                </ul>
+
+                <h4>성격</h4>
+                <p>${char.personality}</p>
+
+                <h4>특징</h4>
+                <p>${char.features}</p>
+            `;
+            
+            // 모달 표시에 클래스 토글 (페이드 인)
+            modal.classList.add('show');
         }
 
-        // 모달 닫기
-        function closeModal(e) {
-            // 이벤트 전파 방지 및 오버레이/X버튼 클릭시에만 닫히게 처리
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // 스크롤 원상복구
-        }
+        closeModalBtn.addEventListener('click', () => {
+            // 모달 닫기에 클래스 토글 (페이드 아웃)
+            modal.classList.remove('show');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
     </script>
->>>>>>> 5eef2738bbb0c8484c7e9a434252d315755d8e9b
 </body>
 </html>
