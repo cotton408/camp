@@ -275,11 +275,11 @@
         .step-title { font-weight: bold; margin-bottom: 5px; }
         .step-desc { font-size: 0.85rem; color: #666; }
 
-        /* 모달 (캐릭터 상세 정보) - 페이드 효과 적용 */
+        /* 모달 (캐릭터 상세 정보) */
         .modal-overlay {
             opacity: 0;
             visibility: hidden;
-            display: flex; /* Flex를 유지한 채 opacity와 visibility로 조절 */
+            display: flex;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5);
@@ -303,7 +303,6 @@
             border-radius: 24px;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            /* 살짝 위로 올라오는 애니메이션 효과 */
             transform: translateY(20px);
             opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -375,7 +374,6 @@
             font-size: 1.05rem;
         }
 
-        /* 상세 설명 내용 폰트 크기 확대 및 스타일 정의 */
         .modal-body {
             font-size: 1.1rem;
             line-height: 1.8;
@@ -408,16 +406,33 @@
             color: #444;
         }
 
-        /* 반응형 */
+        /* 📱 반응형 (모바일 환경 개선) */
         @media (max-width: 768px) {
-            .schedule-container { flex-direction: column; }
             header { padding: 10px; }
             nav ul { gap: 15px; font-size: 0.9rem; }
+            
+            /* 히어로 섹션 이미지 확대 및 여백 축소 */
+            .hero { padding: 40px 15px; }
+            .hero img { max-width: 100%; margin-bottom: 15px; }
+            .hero-desc { font-size: 1rem; }
+            
+            /* 박스들 내부 여백 축소 */
+            .world-container { padding: 25px 15px; gap: 20px; }
+            .group-card { padding: 20px 15px; }
+            .schedule-container { flex-direction: column; padding: 20px 15px; }
+            
+            /* 특별한 규칙 여백 및 글씨 크기 조정 */
+            .rule-box { padding: 20px 15px; }
+            .rule-title { font-size: 1.2rem; }
+            .rule-content { font-size: 1rem; line-height: 1.6; }
+            
+            /* 캐릭터 카드가 모바일에서 2줄로 나오도록 조정 */
+            .characters-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
+            
+            /* 모달창 여백 축소 */
             .modal-inner-padding { padding: 10px 20px 25px 20px; }
             .modal-header h2 { font-size: 1.5rem; }
             .modal-body { font-size: 1rem; }
-            .rule-box { padding: 20px; }
-            .rule-content { font-size: 1rem; }
         }
     </style>
 </head>
@@ -687,12 +702,10 @@
                 <p>${char.features}</p>
             `;
             
-            // 모달 표시에 클래스 토글 (페이드 인)
             modal.classList.add('show');
         }
 
         closeModalBtn.addEventListener('click', () => {
-            // 모달 닫기에 클래스 토글 (페이드 아웃)
             modal.classList.remove('show');
         });
 
