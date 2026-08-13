@@ -76,6 +76,15 @@
             font-size: 1.2rem;
         }
 
+        /* 안내 문구 (클릭 유도) */
+        .click-guide {
+            font-size: 0.95rem;
+            color: #777;
+            margin-top: -15px;
+            margin-bottom: 25px;
+            padding-left: 35px; /* 제목 아이콘 너비만큼 들여쓰기 */
+        }
+
         /* 히어로 섹션 (로고 및 소개) */
         .hero {
             text-align: center;
@@ -406,30 +415,28 @@
             color: #444;
         }
 
-        /* 📱 반응형 (모바일 환경 개선) */
+        /* 반응형 */
         @media (max-width: 768px) {
             header { padding: 10px; }
             nav ul { gap: 15px; font-size: 0.9rem; }
             
-            /* 히어로 섹션 이미지 확대 및 여백 축소 */
             .hero { padding: 40px 15px; }
             .hero img { max-width: 100%; margin-bottom: 15px; }
             .hero-desc { font-size: 1rem; }
             
-            /* 박스들 내부 여백 축소 */
             .world-container { padding: 25px 15px; gap: 20px; }
             .group-card { padding: 20px 15px; }
             .schedule-container { flex-direction: column; padding: 20px 15px; }
             
-            /* 특별한 규칙 여백 및 글씨 크기 조정 */
             .rule-box { padding: 20px 15px; }
             .rule-title { font-size: 1.2rem; }
             .rule-content { font-size: 1rem; line-height: 1.6; }
             
-            /* 캐릭터 카드가 모바일에서 2줄로 나오도록 조정 */
             .characters-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
             
-            /* 모달창 여백 축소 */
+            /* 안내 문구 모바일 여백 조정 */
+            .click-guide { padding-left: 0; text-align: center; font-size: 0.85rem; }
+            
             .modal-inner-padding { padding: 10px 20px 25px 20px; }
             .modal-header h2 { font-size: 1.5rem; }
             .modal-body { font-size: 1rem; }
@@ -490,6 +497,9 @@
     <!-- 집단 및 캐릭터 통합 섹션 -->
     <section id="groups-characters">
         <h2 class="section-title">등장 집단 & 인물 소개</h2>
+        
+        <!-- ✨ 클릭 안내 문구 추가 ✨ -->
+        <p class="click-guide">※ 캐릭터 카드를 클릭하면 상세 정보를 볼 수 있습니다.</p>
 
         <!-- 캠프 동호회 그룹 -->
         <div class="group-section">
